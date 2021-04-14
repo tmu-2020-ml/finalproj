@@ -8,14 +8,14 @@
   <base target="_blank" />
 </svelte:head>
 
-<header>
+<header class="container mx-auto">
   <h1 class="text-6xl">
     Identification of potential gastric cancer biomarkers
   </h1>
   <h2 class="text-4xl">using TCGA-based cancer prediction model</h2>
 </header>
 
-<main>
+<main class="container mx-auto">
   <section>
     <h3 class="text-4xl">Motivation</h3>
     <p>
@@ -120,8 +120,14 @@
         which fold change greater than 2 and p-value less than 0.05.
       </p>
 
-      <IncreasedGeneTable />
-      <DecreasedGeneTable />
+      <div class="flex justify-around">
+        <div class="flex-1">
+          <IncreasedGeneTable />
+        </div>
+        <div class="flex-1">
+          <DecreasedGeneTable />
+        </div>
+      </div>
     </article>
 
     <article>
@@ -135,7 +141,7 @@
   </section>
 
   <section>
-    <h3 class="text-4xl">Our approach</h3>
+    <h3 class="text-4xl">Our Strategy Map</h3>
     <ol class="list-disc list-inside">
       <li>Preprocessing the raw data.</li>
       <li>Reducing variables by Student's t-test</li>
@@ -165,32 +171,20 @@
   </section>
 
   <section>
-    <h3 class="text-4xl">Responsibilities</h3>
+    <h3 class="text-4xl">Contact & Responsibilities</h3>
 
-    <dl>
-      <dt>Su Jing Jhong</dt>
-      <dd>
+    <h4>names in alphabetical order</h4>
+
+    <ul class="flex">
+      <li class="flex-1">
+        <address>Chen Chi Ya</address>
         <ul class="list-disc list-inside">
-          <li>Data processing and ML classification model implementation.</li>
-          <li>Setup and design the website.</li>
+          <li>Clinical statistics</li>
         </ul>
-      </dd>
+      </li>
 
-      <dt>Tsao Yen Ping</dt>
-      <dd>
-        <ul class="list-disc list-inside">
-          <li>ROC chart for MTBP, KIF14 using R.</li>
-          <li>
-            Contingency table, calculation of sensitivity, specificity and AUC
-            for MTBP, KIF14 and combined genes
-          </li>
-        </ul>
-      </dd>
-
-      <dt>Chen Chi Ya</dt>
-      <dd>Clinical statistics</dd>
-      <dt>Chen Yan Jin</dt>
-      <dd>
+      <li class="flex-1">
+        <address>Chen Yan Jin</address>
         <ul class="list-disc list-inside">
           <li>Data preprocessing using R.</li>
           <li>
@@ -198,16 +192,35 @@
           </li>
           <li>Cluster plot for MTBP, KIF14 using R</li>
         </ul>
-      </dd>
+      </li>
 
-      <dt>Huang Bo Shih</dt>
-      <dd>
+      <li class="flex-1">
+        <address>Huang Bo Shih</address>
         <ul class="list-disc list-inside">
           <li>PCA analysis.</li>
           <li>Project organization.</li>
         </ul>
-      </dd>
-    </dl>
+      </li>
+
+      <li class="flex-1">
+        <address>Su Jing Jhong</address>
+        <ul class="list-disc list-inside">
+          <li>Data processing and ML classification model implementation.</li>
+          <li>Setup and design the website.</li>
+        </ul>
+      </li>
+
+      <li class="flex-1">
+        <address>Tsao Yen Ping</address>
+        <ul class="list-disc list-inside">
+          <li>ROC chart for MTBP, KIF14 using R.</li>
+          <li>
+            Contingency table, calculation of sensitivity, specificity and AUC
+            for MTBP, KIF14 and combined genes
+          </li>
+        </ul>
+      </li>
+    </ul>
   </section>
 
   <img src="./loading.svg" alt="loading" />
