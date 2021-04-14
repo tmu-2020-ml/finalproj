@@ -1,4 +1,5 @@
 <table class="table-auto border-collapse border">
+  <caption>The sample data in STAD</caption>
   <thead>
     <tr
       ><th class="border" /><th class="border">TCGA-D7-6526-01</th><th
