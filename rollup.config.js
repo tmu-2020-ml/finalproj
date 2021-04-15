@@ -35,6 +35,12 @@ function serve() {
 }
 
 export default {
+  external: ['vega', 'vega-lite', 'vega-embed'],
+  globals: {
+    vega: 'vega',
+    'vega-lite': 'vegaLite',
+    'vega-embed': 'vegaEmbed',
+  },
   input: 'src/main.ts',
   output: {
     sourcemap: true,

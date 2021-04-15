@@ -2,6 +2,35 @@
   import DecreasedGeneTable from './parts/decreased_genes_table.svelte';
   import IncreasedGeneTable from './parts/increased_genes_table.svelte';
   import TCGASampleTable from './parts/stad_sample.svelte';
+  import DonutPie from './parts/donutpie.svelte';
+
+  const GAIncidenceData: [string, number][] = [
+    ['lung', 11.6],
+    ['breast', 11.6],
+    ['colorectum', 10.2],
+    ['prostate', 7.1],
+    ['stomach', 5.7],
+    ['liver', 4.7],
+    ['esophagus', 3.2],
+    ['cervix uteri', 3.2],
+    ['thyroid', 3.1],
+    ['bladder', 3],
+    ['other', 36.6],
+  ];
+
+  const GAMortality: [string, number][] = [
+    ['lung', 18.4],
+    ['breast', 6.6],
+    ['colorectum', 9.2],
+    ['prostate', 3.8],
+    ['stomach', 8.2],
+    ['liver', 8.2],
+    ['esophagus', 5.3],
+    ['pancreas', 4.5],
+    ['cervix uteri', 3.3],
+    ['leukaemia', 3.2],
+    ['other', 29.3],
+  ];
 </script>
 
 <svelte:head>
@@ -22,7 +51,16 @@
       Gastric cancer (GC) has the 5th incidence rate among cancers and is the
       3rd leading cause of cancer death worldwide.
     </p>
-    <img src="images/p1_1.png" alt="" />
+    <DonutPie
+      title="Incidence rate in both sexes"
+      id="ga-incidence"
+      data={GAIncidenceData}
+    />
+    <DonutPie
+      title="Mortality rate in both sexes"
+      id="ga-morality"
+      data={GAMortality}
+    />
     <p>Eastern Asia has the highest incidence rate of GC around the world.</p>
     <img src="images/p1_2.png" alt="" />
     <cite>CA Cancer J Clin. 2018 Nov;68(6):394-424.</cite>
