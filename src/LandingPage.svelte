@@ -3,6 +3,7 @@
   import IncreasedGeneTable from './parts/increased_genes_table.svelte';
   import TCGASampleTable from './parts/stad_sample.svelte';
   import DonutPie from './parts/donutpie.svelte';
+  import Ppyramids from './parts/ppyramids.svelte';
 
   const GAIncidenceData: [string, number][] = [
     ['lung', 11.6],
@@ -62,8 +63,10 @@
       data={GAMortality}
     />
     <p>Eastern Asia has the highest incidence rate of GC around the world.</p>
-    <img src="images/p1_2.png" alt="" />
-    <cite>CA Cancer J Clin. 2018 Nov;68(6):394-424.</cite>
+    <Ppyramids id="ga-data-in-region" />
+    <div>
+      <cite>CA Cancer J Clin. 2018 Nov;68(6):394-424.</cite>
+    </div>
   </section>
 
   <section>
