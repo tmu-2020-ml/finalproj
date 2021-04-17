@@ -48,22 +48,29 @@
 <main class="container mx-auto">
   <section>
     <h3 class="text-4xl">Motivation</h3>
-    <p>
-      Gastric cancer (GC) has the 5th incidence rate among cancers and is the
-      3rd leading cause of cancer death worldwide.
-    </p>
-    <DonutPie
-      title="Incidence rate in both sexes"
-      id="ga-incidence"
-      data={GAIncidenceData}
-    />
-    <DonutPie
-      title="Mortality rate in both sexes"
-      id="ga-morality"
-      data={GAMortality}
-    />
-    <p>Eastern Asia has the highest incidence rate of GC around the world.</p>
-    <Ppyramids id="ga-data-in-region" />
+    <figure>
+      <figcaption>
+        Gastric cancer (GC) has the 5th incidence rate among cancers and is the
+        3rd leading cause of cancer death worldwide.
+      </figcaption>
+      <DonutPie
+        title="Incidence rate in both sexes"
+        id="ga-incidence"
+        data={GAIncidenceData}
+      />
+      <DonutPie
+        title="Mortality rate in both sexes"
+        id="ga-morality"
+        data={GAMortality}
+      />
+    </figure>
+
+    <figure>
+      <figcaption>
+        Eastern Asia has the highest incidence rate of GC around the world.
+      </figcaption>
+      <Ppyramids id="ga-data-in-region" />
+    </figure>
     <div>
       <cite>CA Cancer J Clin. 2018 Nov;68(6):394-424.</cite>
     </div>
@@ -80,7 +87,7 @@
       <li>Blood type, esp. A type.</li>
     </ul>
     <img src="images/p2_1.png" alt="" />
-    <img src="images/p2_2.png" alt="" />
+    <img src="images/f1.large.jpg" alt="" />
     <cite>Clinical Microbiology Reviews 23, 713-739 (2010) </cite>
   </section>
 
