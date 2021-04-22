@@ -201,6 +201,102 @@
   </section>
 
   <section>
+    <h3 class="text-4xl">Step by step</h3>
+    <section>
+      <h4 class="text-3xl">Preprocessing the raw data</h4>
+    </section>
+    <section>
+      <h4 class="text-3xl">Reducing variables by Student's t-test</h4>
+    </section>
+    <section>
+      <h4 class="text-3xl">
+        Differentiating GC/normal with the accuracy score by Naïve Bays model
+      </h4>
+    </section>
+    <section>
+      <h4 class="text-3xl">
+        Finding Clinical relevance with OR and AUC analysis
+      </h4>
+      <figure>
+        <figcaption>30 PC can explain 80% variance of the data</figcaption>
+      </figure>
+      <figure>
+        <figcaption>94 genes ranking</figcaption>
+      </figure>
+      <figure>
+        <figcaption>The rationale to evaluate error score</figcaption>
+      </figure>
+      <figure>
+        <figcaption>
+          top 2 genes are enough to lower the error rate to near 20%
+        </figcaption>
+      </figure>
+      <figure>
+        <figcaption>
+          MTBP and KIF14 are enough to lower the error score to near 20%.
+        </figcaption>
+      </figure>
+      <figure>
+        <figcaption>
+          MTBP and KIF14 shows two distinct clusters: GC vs. non-GC
+        </figcaption>
+      </figure>
+      <figure>
+        <figcaption>
+          <p>
+            是否罹癌為依變數，兩個基因MTBP、KIF14為自變數(連續變數)，以邏輯斯回歸算出MTBP、KIF14的OR勝算比、P值。
+          </p>
+          <p>MTBP每增加一單位則增加罹癌率437倍</p>
+          <p>KIF14每增加一單位則增加罹癌率17倍</p>
+        </figcaption>
+      </figure>
+    </section>
+  </section>
+
+  <section>
+    <h3 class="text-4xl">
+      Curated survival data from the Pan-cancer Atlas paper titled
+    </h3>
+    <p>
+      "An Integrated TCGA Pan-Cancer Clinical Data Resource (TCGA-CDR) to drive
+      high quality survival outcome analytics". The paper highlights four types
+      of carefully curated survival endpoints, and recommends the use of the
+      endpoints of OS, PFI, DFI, and DSS for each TCGA cancer type.
+    </p>
+  </section>
+  <section>
+    <h3 class="text-4xl">Survival Analysis</h3>
+
+    <p>
+      We use survival analysis and show the OS, PFI, DFI Kaplan-Meier (K-M)
+      plots for all cases of Stomach Cancer (STAD) cancer.
+    </p>
+    <p>
+      The MTBP and KIF14 are divided into two groups, which stratified by ROC
+      cut points.
+    </p>
+
+    <dl>
+      <dt>Overall survival (OS)</dt>
+      <dd>
+        It is an important endpoint, with the advantage that there is minimal
+        ambiguity in defining an OS event
+      </dd>
+
+      <dt>Disease-specific survival (DSS)</dt>
+      <dd>
+        Patients who died from causes other than the disease being studied are
+        not counted in this measurement
+      </dd>
+      <dt>Disease-free interval (DFI)</dt>
+      <dd>
+        It is the length of time during and after the treatment of a disease It
+        means that a patient stays free of a cancer after a particular treatment
+      </dd>
+    </dl>
+  </section>
+
+  <section>
     <h3 class="text-4xl">Conclusion</h3>
     <ol class="list-disc list-inside">
       <li>
