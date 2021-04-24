@@ -48,22 +48,29 @@
 <main class="container mx-auto">
   <section>
     <h3 class="text-4xl">Motivation</h3>
-    <p>
-      Gastric cancer (GC) has the 5th incidence rate among cancers and is the
-      3rd leading cause of cancer death worldwide.
-    </p>
-    <DonutPie
-      title="Incidence rate in both sexes"
-      id="ga-incidence"
-      data={GAIncidenceData}
-    />
-    <DonutPie
-      title="Mortality rate in both sexes"
-      id="ga-morality"
-      data={GAMortality}
-    />
-    <p>Eastern Asia has the highest incidence rate of GC around the world.</p>
-    <Ppyramids id="ga-data-in-region" />
+    <figure>
+      <figcaption>
+        Gastric cancer (GC) has the 5th incidence rate among cancers and is the
+        3rd leading cause of cancer death worldwide.
+      </figcaption>
+      <DonutPie
+        title="Incidence rate in both sexes"
+        id="ga-incidence"
+        data={GAIncidenceData}
+      />
+      <DonutPie
+        title="Mortality rate in both sexes"
+        id="ga-morality"
+        data={GAMortality}
+      />
+    </figure>
+
+    <figure>
+      <figcaption>
+        Eastern Asia has the highest incidence rate of GC around the world.
+      </figcaption>
+      <Ppyramids id="ga-data-in-region" />
+    </figure>
     <div>
       <cite>CA Cancer J Clin. 2018 Nov;68(6):394-424.</cite>
     </div>
@@ -80,7 +87,7 @@
       <li>Blood type, esp. A type.</li>
     </ul>
     <img src="images/p2_1.png" alt="" />
-    <img src="images/p2_2.png" alt="" />
+    <img src="images/f1.large.jpg" alt="" />
     <cite>Clinical Microbiology Reviews 23, 713-739 (2010) </cite>
   </section>
 
@@ -191,6 +198,205 @@
       </li>
       <li>Finding Clinical relevance with OR and AUC analysis.</li>
     </ol>
+  </section>
+
+  <section>
+    <h3 class="text-4xl">Step by step</h3>
+    <section>
+      <h4 class="text-3xl">Preprocessing the raw data</h4>
+      <figure>
+        <img src="/images/rawdata.png" />
+      </figure>
+    </section>
+    <section>
+      <h4 class="text-3xl">Reducing variables by Student's t-test</h4>
+    </section>
+    <section>
+      <h4 class="text-3xl">
+        Differentiating GC/normal with the accuracy score by Naïve Bays model
+      </h4>
+      <figure>
+        <img src="/images/nbperf.png" />
+      </figure>
+    </section>
+    <section>
+      <h4 class="text-3xl">
+        Finding Clinical relevance with OR and AUC analysis
+      </h4>
+      <figure>
+        <figcaption>30 PC can explain 80% variance of the data</figcaption>
+
+        <img src="/images/pca.png" />
+        <img src="/images/pca_plot.png" />
+      </figure>
+      <figure>
+        <figcaption>94 genes ranking</figcaption>
+        <img src="/images/pca_top2.png" />
+      </figure>
+      <figure>
+        <figcaption>The rationale to evaluate error score</figcaption>
+        <img src="/images/pca_explain.png" />
+      </figure>
+      <figure>
+        <figcaption>
+          top 2 genes are enough to lower the error rate to near 20%
+        </figcaption>
+      </figure>
+      <figure>
+        <figcaption>
+          MTBP and KIF14 are enough to lower the error score to near 20%.
+        </figcaption>
+      </figure>
+      <figure>
+        <figcaption>
+          MTBP and KIF14 shows two distinct clusters: GC vs. non-GC
+        </figcaption>
+        <img src="/images/scatterplot.png" />
+      </figure>
+      <figure>
+        <figcaption>
+          <p>Effects of MTBP and KIF14 expression on OR for GC development</p>
+          <p>
+            是否罹癌為依變數，兩個基因MTBP、KIF14為自變數(連續變數)，以邏輯斯回歸算出MTBP、KIF14的OR勝算比、P值。
+          </p>
+          <p>MTBP每增加一單位則增加罹癌率437倍</p>
+          <p>KIF14每增加一單位則增加罹癌率17倍</p>
+        </figcaption>
+
+        <table>
+          <thead>
+            <tr>
+              <th class="border" />
+              <th class="border">OR(95CI)</th>
+              <th class="border">p-value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border">MTBP</td>
+              <td class="border">437.8 (12.652, &gt;999.9)</td>
+              <td class="border">0.0008 ****</td>
+            </tr>
+            <tr>
+              <td class="border">KIF14</td>
+              <td class="border">18.477 (1.987, 171.795)</td>
+              <td class="border">0.0104 *</td>
+            </tr>
+            <tr>
+              <td class="border">MTBP+KIF14</td>
+              <td class="border">2408.64</td>
+              <td class="border">&lt;0.00001 ****</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <img src="/images/kif14_roc.png" />
+        <img src="/images/mtbp_roc.png" />
+
+        <table>
+          <thead>
+            <tr>
+              <th colspan="2" rowspan="2" class="border"
+                >MTBP<br />Sensitivity: 340 / 380 = 0.8947<br />Specificity: 37
+                / 37 = 1</th
+              >
+              <th class="border" colspan="2">Prediction</th>
+            </tr>
+            <tr>
+              <td class="border">&gt;= 0.79</td>
+              <td class="border">&lt; 0.79</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="2">Actual</td>
+              <td class="border">GC is 1 (380)</td>
+              <td class="border">340</td>
+              <td class="border">40</td>
+            </tr>
+            <tr>
+              <td class="border">GC is 0 (37)</td>
+              <td class="border">0</td>
+              <td class="border">37</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table>
+          <thead>
+            <tr>
+              <th colspan="2" rowspan="2" class="border"
+                >KIF14<br />Sensitivity: 340 / 380 = 0.8947<br />Specificity: 35
+                / 37 = 0.9459</th
+              >
+              <th colspan="2" class="border">Prediction</th>
+            </tr>
+            <tr>
+              <td class="border">&gt;= 0.75</td>
+              <td class="border">&lt; 0.75</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border" rowspan="2">Actual</td>
+              <td class="border">GC is 1 (380)</td>
+              <td class="border">340</td>
+              <td class="border">40</td>
+            </tr>
+            <tr>
+              <td class="border">GC is 0 (37)</td>
+              <td class="border">2</td>
+              <td class="border">35</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <img src="/images/combined_roc.png" />
+      </figure>
+    </section>
+  </section>
+
+  <section>
+    <h3 class="text-4xl">
+      Curated survival data from the Pan-cancer Atlas paper titled
+    </h3>
+    <p>
+      "An Integrated TCGA Pan-Cancer Clinical Data Resource (TCGA-CDR) to drive
+      high quality survival outcome analytics". The paper highlights four types
+      of carefully curated survival endpoints, and recommends the use of the
+      endpoints of OS, PFI, DFI, and DSS for each TCGA cancer type.
+    </p>
+  </section>
+  <section>
+    <h3 class="text-4xl">Survival Analysis</h3>
+
+    <p>
+      We use survival analysis and show the OS, PFI, DFI Kaplan-Meier (K-M)
+      plots for all cases of Stomach Cancer (STAD) cancer.
+    </p>
+    <p>
+      The MTBP and KIF14 are divided into two groups, which stratified by ROC
+      cut points.
+    </p>
+
+    <dl>
+      <dt>Overall survival (OS)</dt>
+      <dd>
+        It is an important endpoint, with the advantage that there is minimal
+        ambiguity in defining an OS event
+      </dd>
+
+      <dt>Disease-specific survival (DSS)</dt>
+      <dd>
+        Patients who died from causes other than the disease being studied are
+        not counted in this measurement
+      </dd>
+      <dt>Disease-free interval (DFI)</dt>
+      <dd>
+        It is the length of time during and after the treatment of a disease It
+        means that a patient stays free of a cancer after a particular treatment
+      </dd>
+    </dl>
   </section>
 
   <section>
