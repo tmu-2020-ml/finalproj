@@ -204,6 +204,9 @@
     <h3 class="text-4xl">Step by step</h3>
     <section>
       <h4 class="text-3xl">Preprocessing the raw data</h4>
+      <figure>
+        <img src="/images/rawdata.png" />
+      </figure>
     </section>
     <section>
       <h4 class="text-3xl">Reducing variables by Student's t-test</h4>
@@ -212,6 +215,9 @@
       <h4 class="text-3xl">
         Differentiating GC/normal with the accuracy score by Naïve Bays model
       </h4>
+      <figure>
+        <img src="/images/nbperf.png" />
+      </figure>
     </section>
     <section>
       <h4 class="text-3xl">
@@ -219,12 +225,17 @@
       </h4>
       <figure>
         <figcaption>30 PC can explain 80% variance of the data</figcaption>
+
+        <img src="/images/pca.png" />
+        <img src="/images/pca_plot.png" />
       </figure>
       <figure>
         <figcaption>94 genes ranking</figcaption>
+        <img src="/images/pca_top2.png" />
       </figure>
       <figure>
         <figcaption>The rationale to evaluate error score</figcaption>
+        <img src="/images/pca_explain.png" />
       </figure>
       <figure>
         <figcaption>
@@ -240,15 +251,107 @@
         <figcaption>
           MTBP and KIF14 shows two distinct clusters: GC vs. non-GC
         </figcaption>
+        <img src="/images/scatterplot.png" />
       </figure>
       <figure>
         <figcaption>
+          <p>Effects of MTBP and KIF14 expression on OR for GC development</p>
           <p>
             是否罹癌為依變數，兩個基因MTBP、KIF14為自變數(連續變數)，以邏輯斯回歸算出MTBP、KIF14的OR勝算比、P值。
           </p>
           <p>MTBP每增加一單位則增加罹癌率437倍</p>
           <p>KIF14每增加一單位則增加罹癌率17倍</p>
         </figcaption>
+
+        <table>
+          <thead>
+            <tr>
+              <th class="border" />
+              <th class="border">OR(95CI)</th>
+              <th class="border">p-value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border">MTBP</td>
+              <td class="border">437.8 (12.652, &gt;999.9)</td>
+              <td class="border">0.0008 ****</td>
+            </tr>
+            <tr>
+              <td class="border">KIF14</td>
+              <td class="border">18.477 (1.987, 171.795)</td>
+              <td class="border">0.0104 *</td>
+            </tr>
+            <tr>
+              <td class="border">MTBP+KIF14</td>
+              <td class="border">2408.64</td>
+              <td class="border">&lt;0.00001 ****</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <img src="/images/kif14_roc.png" />
+        <img src="/images/mtbp_roc.png" />
+
+        <table>
+          <thead>
+            <tr>
+              <th colspan="2" rowspan="2" class="border"
+                >MTBP<br />Sensitivity: 340 / 380 = 0.8947<br />Specificity: 37
+                / 37 = 1</th
+              >
+              <th class="border" colspan="2">Prediction</th>
+            </tr>
+            <tr>
+              <td class="border">&gt;= 0.79</td>
+              <td class="border">&lt; 0.79</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="2">Actual</td>
+              <td class="border">GC is 1 (380)</td>
+              <td class="border">340</td>
+              <td class="border">40</td>
+            </tr>
+            <tr>
+              <td class="border">GC is 0 (37)</td>
+              <td class="border">0</td>
+              <td class="border">37</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table>
+          <thead>
+            <tr>
+              <th colspan="2" rowspan="2" class="border"
+                >KIF14<br />Sensitivity: 340 / 380 = 0.8947<br />Specificity: 35
+                / 37 = 0.9459</th
+              >
+              <th colspan="2" class="border">Prediction</th>
+            </tr>
+            <tr>
+              <td class="border">&gt;= 0.75</td>
+              <td class="border">&lt; 0.75</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border" rowspan="2">Actual</td>
+              <td class="border">GC is 1 (380)</td>
+              <td class="border">340</td>
+              <td class="border">40</td>
+            </tr>
+            <tr>
+              <td class="border">GC is 0 (37)</td>
+              <td class="border">2</td>
+              <td class="border">35</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <img src="/images/combined_roc.png" />
       </figure>
     </section>
   </section>
