@@ -115,7 +115,6 @@
         }))
     )
     .flat();
-  console.log(subGeneKeys);
 
   export let id: string;
   export let title: string;

@@ -5,6 +5,7 @@
   import DonutPie from './parts/donutpie.svelte';
   import Ppyramids from './parts/ppyramids.svelte';
   import GeneInteraction from './parts/gene_interactions.svelte';
+  import GenesRanking from './sections/genes_ranking.svelte';
 
   const GAIncidenceData: [string, number][] = [
     ['lung', 11.6],
@@ -33,103 +34,6 @@
     ['leukaemia', 3.2],
     ['other', 29.3],
   ];
-
-  const pca_genes = [
-    'MTBP',
-    'KIF14',
-    'DSCC1',
-    'FAM72A',
-    'CTHRC1',
-    'WDR67',
-    'FAM72D',
-    'CCDC150',
-    'C1QTNF6',
-    'MCM8',
-    'ZNF695',
-    'MMP11',
-    'XRCC2',
-    'C5orf34',
-    'AURKAPS1',
-    'COL10A1',
-    'PABPC1L',
-    'FANCB',
-    'HSPD1',
-    'CST1',
-    'DNMT3B',
-    'COL11A1',
-    'WNT2',
-    'ZNF761',
-    'MTL5',
-    'RNFT2',
-    'ZNF469',
-    'ADAM12',
-    'NT5DC4',
-    'FAM176A',
-    'FAM122B',
-    'ADAMTS14',
-    'KIF26B',
-    'HOXC11',
-    'AX746880',
-    'MEX3A',
-    'ESM1',
-    'FOXH1',
-    'ACAN',
-    'HOXC9',
-    'MFI2',
-    'AF279780',
-    'HOXC8',
-    'LOC399815',
-    'GABRD',
-    'AK024736',
-    'SALL4',
-    'HOTAIR',
-    'OLR1',
-    'IBSP',
-    'MAPK15',
-    'ACBD7',
-    'MATN3',
-    'BC094703',
-    'HOXC10',
-    'STRA6',
-    'FOXS1',
-    'RAET1K',
-    'TDRD5',
-    'DCLK3',
-    'LOC386597',
-    'HOXA11',
-    'HMGA2',
-    'L12234',
-    'AK022914',
-    'CORIN',
-    'PRAME',
-    'CILP2',
-    'TMEM26',
-    'FAM132B',
-    'LOC170425',
-    'GAD1',
-    'AK128707',
-    'CHRNA1',
-    'STK31',
-    'BC035769',
-    'TNNI3',
-    'LOC286467',
-    'CXorf61',
-    'C6orf223',
-    'ERI1',
-    'LOC154860',
-    'C8orf31',
-    'FAM40B',
-    'FLJ41200',
-    'DMBX1',
-    'MIR196B',
-    'DCSTAMP',
-    'HTRA4',
-    'FEZF1',
-    'LOC100287314',
-    'AMH',
-    'PRKCG',
-    'C4BPA',
-  ];
 </script>
 
 <svelte:head>
@@ -141,6 +45,7 @@
     Identification of potential gastric cancer biomarkers
   </h1>
   <h2 class="text-4xl">using TCGA-based cancer prediction model</h2>
+  <img src="/images/urlqr.svg" alt="" />
 </header>
 
 <main class="container mx-auto">
@@ -172,6 +77,13 @@
     <div>
       <cite>CA Cancer J Clin. 2018 Nov;68(6):394-424.</cite>
     </div>
+
+    <figure>
+      <figcaption>The situation in Taiwan.</figcaption>
+      <img src="/images/age stand.svg" alt="" />
+      <img src="/images/age.svg" alt="" />
+      <img src="/images/no.svg" alt="" />
+    </figure>
   </section>
 
   <section>
@@ -184,8 +96,8 @@
       <li>Low acidity.</li>
       <li>Blood type, esp. A type.</li>
     </ul>
-    <img src="images/p2_1.png" alt="" />
-    <img src="images/f1.large.jpg" alt="" />
+    <img src="/images/p2_1.png" alt="" />
+    <img src="/images/f1.large.jpg" alt="" />
     <cite>Clinical Microbiology Reviews 23, 713-739 (2010) </cite>
   </section>
 
@@ -282,7 +194,7 @@
         node involvement (N+ and N-) in this paper.
       </p>
 
-      <img src="images/p3_1.jpg" alt="" />
+      <img src="/images/p3_1.jpg" alt="" />
     </article>
   </section>
 
@@ -322,18 +234,48 @@
         Finding Clinical relevance with OR and AUC analysis
       </h4>
       <figure>
-        <figcaption>30 PC can explain 80% variance of the data</figcaption>
+        <figcaption>
+          PC1 plus PC2 can distinguish two distinct clusters: GC vs. non-GC
+        </figcaption>
 
-        <img src="/images/pca.png" />
-        <img src="/images/pca_plot.png" />
+        <img src="/images/clustering usung PC1+PC2.svg" />
+        <img src="/images/variance vs. PC.svg" />
       </figure>
       <figure>
         <figcaption>94 genes ranking</figcaption>
-        <img src="/images/pca_top2.png" />
+        <GenesRanking />
       </figure>
       <figure>
         <figcaption>The rationale to evaluate error score</figcaption>
-        <img src="/images/pca_explain.png" />
+        <div>
+          <table>
+            <tr>
+              <td>False Negative</td>
+              <td>Corrected Decision</td>
+            </tr>
+            <tr>
+              <td>Corrected Decision</td>
+              <td>Flase Positive</td>
+            </tr>
+          </table>
+
+          <div>
+            <div>False negative error is much serious</div>
+            <div>Wα = 10 Wβ</div>
+            <div>Error = Wα (# of α error) + Wβ (# of β error)</div>
+          </div>
+
+          <table>
+            <tr>
+              <td>10</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td>1</td>
+            </tr>
+          </table>
+        </div>
       </figure>
       <figure>
         <figcaption>
@@ -349,16 +291,19 @@
         <figcaption>
           MTBP and KIF14 shows two distinct clusters: GC vs. non-GC
         </figcaption>
-        <img src="/images/scatterplot.png" />
+        <img src="/images/mtbp_kif14_scatterplot.svg" />
       </figure>
+
       <figure>
         <figcaption>
           <p>Effects of MTBP and KIF14 expression on OR for GC development</p>
           <p>
-            是否罹癌為依變數，兩個基因MTBP、KIF14為自變數(連續變數)，以邏輯斯回歸算出MTBP、KIF14的OR勝算比、P值。
+            Using carcinogenesis (1,0) as dependent variable and expression
+            levels of MTBP and KIF14 as independent variables, we calculated the
+            OR by logistic regression. The OR of tissue carcinogenesis in each
+            unit increase of MTBP and KIF14 expression levels are 437 and 17,
+            respectively.
           </p>
-          <p>MTBP每增加一單位則增加罹癌率437倍</p>
-          <p>KIF14每增加一單位則增加罹癌率17倍</p>
         </figcaption>
 
         <table>
@@ -388,8 +333,14 @@
           </tbody>
         </table>
 
-        <img src="/images/kif14_roc.png" />
-        <img src="/images/mtbp_roc.png" />
+        <figure>
+          <figcaption>KIF14 (cutoff≈0.75)</figcaption>
+          <img src="/images/kif14_roc.svg" />
+        </figure>
+        <figure>
+          <figcaption>MTBP (cutoff≈0.79)</figcaption>
+          <img src="/images/mtbp_roc.svg" />
+        </figure>
 
         <table>
           <thead>
@@ -449,7 +400,50 @@
           </tbody>
         </table>
 
-        <img src="/images/combined_roc.png" />
+        <figure>
+          <figcaption>Combined ROC (cutoff≈0.95)</figcaption>
+          <img src="/images/combined_roc.svg" />
+        </figure>
+      </figure>
+
+      <figure>
+        <p>
+          The area under ROC curve showed 0.969 to MTBP and KIF14 and 0.978 for
+          combination of two genes. It indicates that both genes have good
+          ability to discriminate malignant tissues vs. normal counterparts.
+        </p>
+
+        <table>
+          <caption
+            >Effects of MTBP and KIF14 expression on AUC for GC/normal tissues
+            differentiation</caption
+          >
+          <thead
+            ><tr
+              ><th /><th>Expression</th><th>GC</th><th>Normal</th><th
+                >Sensitivity</th
+              ><th>Specificity</th><th>AUC</th></tr
+            ></thead
+          ><tbody
+            ><tr
+              ><td rowspan="2">Gene1 MTBP</td><td>high</td><td>340</td><td>0</td
+              ><td rowspan="2">0.8947</td><td rowspan="2">1</td><td rowspan="2"
+                >0.969</td
+              ></tr
+            ><tr><td>low</td><td>40</td><td>37</td></tr><tr
+              ><td rowspan="2">Gene KIF14</td><td>high</td><td>340</td><td>2</td
+              ><td rowspan="2">0.8947</td><td rowspan="2">0.9459</td><td
+                rowspan="2">0.969</td
+              ></tr
+            ><tr><td>low</td><td>40</td><td>35</td></tr><tr
+              ><td rowspan="2">Combined 2 genes</td><td>high</td><td>327</td><td
+                >0</td
+              ><td rowspan="2">0.8605</td><td rowspan="2">1</td><td rowspan="2"
+                >0.978</td
+              ></tr
+            ><tr><td>low</td><td>53</td><td>37</td></tr></tbody
+          >
+        </table>
       </figure>
     </section>
   </section>
