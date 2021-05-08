@@ -172,6 +172,13 @@
     <div>
       <cite>CA Cancer J Clin. 2018 Nov;68(6):394-424.</cite>
     </div>
+
+    <figure>
+      <figcaption>The situation in Taiwan.</figcaption>
+      <img src="images/age stand.svg" alt="" />
+      <img src="images/age.svg" alt="" />
+      <img src="images/no.svg" alt="" />
+    </figure>
   </section>
 
   <section>
@@ -324,16 +331,50 @@
       <figure>
         <figcaption>30 PC can explain 80% variance of the data</figcaption>
 
-        <img src="/images/pca.png" />
-        <img src="/images/pca_plot.png" />
+        <img src="/images/80 variance.svg" />
+        <img src="/images/error vs. pc.svg" />
       </figure>
       <figure>
         <figcaption>94 genes ranking</figcaption>
-        <img src="/images/pca_top2.png" />
+        <div>
+          <ol>
+            {#each pca_genes as gene}
+              <li style="display: inline-block;">{gene}</li>
+            {/each}
+          </ol>
+        </div>
       </figure>
       <figure>
         <figcaption>The rationale to evaluate error score</figcaption>
-        <img src="/images/pca_explain.png" />
+        <div>
+          <table>
+            <tr>
+              <td>False Negative</td>
+              <td>Corrected Decision</td>
+            </tr>
+            <tr>
+              <td>Corrected Decision</td>
+              <td>Flase Positive</td>
+            </tr>
+          </table>
+
+          <div>
+            <div>False negative error is much serious</div>
+            <div>Wα = 10 Wβ</div>
+            <div>Error = Wα (# of α error) + Wβ (# of β error)</div>
+          </div>
+
+          <table>
+            <tr>
+              <td>10</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td>1</td>
+            </tr>
+          </table>
+        </div>
       </figure>
       <figure>
         <figcaption>
@@ -388,8 +429,14 @@
           </tbody>
         </table>
 
-        <img src="/images/kif14_roc.png" />
-        <img src="/images/mtbp_roc.png" />
+        <figure>
+          <figcaption>KIF14 (cutoff≈0.75)</figcaption>
+          <img src="/images/kif14_roc.svg" />
+        </figure>
+        <figure>
+          <figcaption>MTBP (cutoff≈0.79)</figcaption>
+          <img src="/images/mtbp_roc.svg" />
+        </figure>
 
         <table>
           <thead>
@@ -449,7 +496,10 @@
           </tbody>
         </table>
 
-        <img src="/images/combined_roc.png" />
+        <figure>
+          <figcaption>Combined ROC (cutoff≈0.95)</figcaption>
+          <img src="/images/combined_roc.svg" />
+        </figure>
       </figure>
     </section>
   </section>
