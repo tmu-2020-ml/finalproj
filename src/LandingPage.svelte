@@ -233,6 +233,13 @@
       <h4 class="text-3xl">
         Finding Clinical relevance with OR and AUC analysis
       </h4>
+
+      <figure>
+        <figcaption>30 PC can explain 80% variance of the data</figcaption>
+
+        <img src="/images/80 variance.svg" />
+      </figure>
+
       <figure>
         <figcaption>
           PC1 plus PC2 can distinguish two distinct clusters: GC vs. non-GC
@@ -240,6 +247,7 @@
 
         <img src="/images/clustering usung PC1+PC2.svg" />
         <img src="/images/variance vs. PC.svg" />
+        <img src="/images/error vs. pc.svg" />
       </figure>
       <figure>
         <figcaption>94 genes ranking</figcaption>
