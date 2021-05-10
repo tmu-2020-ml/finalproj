@@ -19,9 +19,7 @@
   };
 
   onMount(() => {
-    vegaEmbed(`#${id}`, pieData, { actions: false }).catch((error) =>
-      console.log(error)
-    );
+    vegaEmbed(`#${id}`, pieData).catch((error) => console.log(error));
   });
 </script>
 

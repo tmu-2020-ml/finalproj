@@ -345,9 +345,7 @@
   };
 
   onMount(() => {
-    vegaEmbed(`#${id}`, genedata, { actions: false }).catch((error) =>
-      console.log(error)
-    );
+    vegaEmbed(`#${id}`, genedata).catch((error) => console.log(error));
   });
 </script>
 
