@@ -5,6 +5,7 @@
   export let data: [string, number][] = [];
   export let id: string;
   export let title: string;
+  export let classnames: string = '';
 
   const pieData = {
     $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
@@ -23,4 +24,4 @@
   });
 </script>
 
-<div {id} />
+<div {id} class={classnames} />

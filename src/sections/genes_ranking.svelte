@@ -101,7 +101,7 @@
 
 <ol style="--max-tag-length: {fixedLen}">
   {#each top94Genes as gene}
-    <li>{gene}</li>
+    <li class="leading-loose">{gene}</li>
   {/each}
 </ol>
 

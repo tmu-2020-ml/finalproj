@@ -1,12 +1,12 @@
 <script lang="ts">
-  import LandingPage from './LandingPage.svelte';
+  import MainPage from './MainPage.svelte';
 </script>
 
 <svelte:head>
   <title>TMU 2020</title>
 </svelte:head>
 
-<LandingPage />
+<MainPage />
 
 <style global lang="postcss">
   @tailwind base;
