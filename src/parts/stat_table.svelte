@@ -15,4 +15,20 @@
   div :global(tbody) {
     border-bottom: 1px solid;
   }
+
+  div :global(tbody th) {
+    text-align: left;
+  }
+
+  div :global(td) {
+    padding: 3px;
+  }
+
+  div :global(th) {
+    padding: 3px;
+  }
+
+  div :global(tbody tr > td) {
+    padding-left: 1rem;
+  }
 </style>
