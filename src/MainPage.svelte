@@ -1,6 +1,4 @@
 <script lang="ts">
-  // import DecreasedGeneTable from './parts/decreased_genes_table.svelte';
-  // import IncreasedGeneTable from './parts/increased_genes_table.svelte';
   import TCGASampleTable from './parts/stad_sample.svelte';
   import DonutPie from './parts/donutpie.svelte';
   import Ppyramids from './parts/ppyramids.svelte';
@@ -8,7 +6,7 @@
   import GenesRanking from './sections/genes_ranking.svelte';
   import Blockquote from './parts/blockquote.svelte';
   import StatTable from './parts/stat_table.svelte';
-  import Avatar from './parts/avatar.svelte';
+  import ContactSection from './sections/contact.svelte';
 
   const GAIncidenceData: [string, number][] = [
     ['lung', 11.6],
@@ -45,8 +43,8 @@
 
 <header class="font-serif p-20 xl:p-40 bg-secondary text-danger">
   <div class="flex flex-wrap sm:flex-nowrap">
-    <h1 class="text-5xl xl:text-8xl capitalize">
-      Identification of potential gastric cancer biomarkers
+    <h1 class="text-5xl xl:text-8xl">
+      Identification of Potential Gastric Cancer Biomarkers
     </h1>
     <div class="flex-shrink-0 order-first sm:order-none">
       <img src="/images/urlqr.svg" alt="" />
@@ -209,7 +207,7 @@
     <Blockquote>
       <slot slot="content">
         <p>
-          ... We evidenced a gene expression signature associated to muscle
+          We evidenced a gene expression signature associated to muscle
           contraction-related genes in specimens obtained from OSCC patients
           with lymph node involvement. This gene signature suggests the presence
           of myofibroblasts in tumor stoma of patients with lymph node
@@ -227,14 +225,10 @@
     </Blockquote>
 
     <p class="p-5">
-      From the table 1 in the paper, it found out 41 differentially expressed
-      expressed genes which fold change greater than 2 and p-value less than
-      0.05.
-    </p>
-
-    <p class="p-5">
-      Then the PCA plot (figure 1 in the paper) shows two distinct clusters:
-      OSCC with and without lymph node involvement (N+ and N-) in this paper.
+      As shown in table 1 in the paper, 41 genes were found significantly
+      expressed by 2-fold between tumor tissues of OSCC patients with and
+      without lymph node involvement (N+ and N-). PCA plot showed 2 distinct
+      clusters.
     </p>
   </section>
 </section>
@@ -383,7 +377,7 @@
             </thead>
             <tbody>
               <tr>
-                <td rowspan="2">Actual</td>
+                <th rowspan="2">Actual</th>
                 <td>GC is 1 (380)</td>
                 <td>340</td>
                 <td>40</td>
@@ -414,7 +408,7 @@
             </thead>
             <tbody>
               <tr>
-                <td rowspan="2">Actual</td>
+                <th rowspan="2">Actual</th>
                 <td>GC is 1 (380)</td>
                 <td>340</td>
                 <td>40</td>
@@ -459,17 +453,17 @@
                 ></thead
               ><tbody
                 ><tr
-                  ><td rowspan="2">MTBP</td><td>high</td><td>340</td><td>0</td
+                  ><th rowspan="2">MTBP</th><td>high</td><td>340</td><td>0</td
                   ><td rowspan="2">0.8947</td><td rowspan="2">1</td><td
                     rowspan="2">0.969</td
                   ></tr
                 ><tr><td>low</td><td>40</td><td>37</td></tr><tr
-                  ><td rowspan="2">KIF14</td><td>high</td><td>340</td><td>2</td
+                  ><th rowspan="2">KIF14</th><td>high</td><td>340</td><td>2</td
                   ><td rowspan="2">0.8947</td><td rowspan="2">0.9459</td><td
                     rowspan="2">0.969</td
                   ></tr
                 ><tr><td>low</td><td>40</td><td>35</td></tr><tr
-                  ><td rowspan="2">Combined 2 genes</td><td>high</td><td>327</td
+                  ><th rowspan="2">Combined 2 genes</th><td>high</td><td>327</td
                   ><td>0</td><td rowspan="2">0.8605</td><td rowspan="2">1</td
                   ><td rowspan="2">0.978</td></tr
                 ><tr><td>low</td><td>53</td><td>37</td></tr></tbody
@@ -487,78 +481,72 @@
   <section class="container mx-auto">
     <section class="container mx-auto">
       <article>
-        <h4 class="text-3xl capitalize">
-          Curated survival data from the Pan-cancer Atlas paper titled
-        </h4>
         <p>
-          "An Integrated TCGA Pan-Cancer Clinical Data Resource (TCGA-CDR) to
-          drive high quality survival outcome analytics". The paper highlights
-          four types of carefully curated survival endpoints, and recommends the
-          use of the endpoints of OS, PFI, DFI, and DSS for each TCGA cancer
-          type.
+          The expression levels of MTBP and KIF14 in gastric tumor tissues were
+          divided into two groups by ROC cut points. The relevance of two genes
+          to clinical features were assessed by chi square test.
         </p>
       </article>
-      <article>
+      <article class="pt-5">
         <h4 class="text-3xl capitalize">Survival Analysis</h4>
         <p>
-          We use survival analysis and show the OS, PFI, DFI Kaplan-Meier (K-M)
-          plots for all cases of Stomach Cancer (STAD) cancer.
+          The prognostic value of two genes to gastric cancer patients were
+          assessed by Cox proportional hazards model.
         </p>
-        <p>
-          The MTBP and KIF14 are divided into two groups, which stratified by
-          ROC cut points.
-        </p>
-
-        <dl>
-          <dt>Overall survival (OS)</dt>
-          <dd>
-            It is an important endpoint, with the advantage that there is
-            minimal ambiguity in defining an OS event
-          </dd>
-
-          <dt>Disease-specific survival (DSS)</dt>
-          <dd>
-            Patients who died from causes other than the disease being studied
-            are not counted in this measurement
-          </dd>
-          <dt>Disease-free interval (DFI)</dt>
-          <dd>
-            It is the length of time during and after the treatment of a disease
-            It means that a patient stays free of a cancer after a particular
-            treatment
-          </dd>
-        </dl>
       </article>
+
+      <figure>
+        <div class="flex flex-wrap xl:flex-nowrap justify-evenly p-5">
+          <img
+            class="p-5"
+            style="width: 500px;"
+            src="/images/survival of MTBP DSS.svg"
+            alt="survival of MTBP DSS"
+          />
+          <img
+            class="p-5"
+            style="width: 500px;"
+            src="/images/survival of KIF DSS.svg"
+            alt="survival of KIF DSS"
+          />
+        </div>
+      </figure>
 
       <div
         class="flex flex-wrap xl:flex-nowrap overflow-x-auto relative justify-center items-center p-5"
         style="width: 100vw; left: calc(-50vw + 50%);"
       >
         <StatTable>
-          <table>
+          <table style="border-collapse:collapse;border-spacing:0" class="tg">
             <thead
               ><tr
                 ><th rowspan="2" /><th>MTBP&lt;=0.79</th><th>MTBP&gt;0.79</th
-                ><th rowspan="2">p-value</th><th>KIF14 &lt;=0.75</th><th
+                ><th rowspan="2">P-value</th><th>KIF14 &lt;=0.75</th><th
                   >KIF14 &gt;0.75</th
                 ><th rowspan="2"> p-value</th></tr
-              ><tr
-                ><td>N=77</td><td>N=339</td><td rowspan="2">N=75</td><td
-                  rowspan="2">N=341</td
-                ></tr
+              ><tr><td>N=77</td><td>N=339</td><td>N=75</td><td>N=341</td></tr
               ></thead
             ><tbody
-              ><tr><td>Gender</td><td /><td /><td>0.862</td><td /></tr><tr
-                ><td rowspan="2">Male</td><td>51(66.2%)</td><td>221(65.2%)</td
-                ><td /><td rowspan="2">51(68.0%)</td><td rowspan="2"
-                  >221(64.8%)</td
-                ><td rowspan="2">0.599</td></tr
-              ><tr><td>26(33.8%)</td><td>118(34.8%)</td><td /></tr><tr
-                ><td rowspan="2">Age</td><td /><td /><td>0.26</td><td
-                  rowspan="2"
-                /><td rowspan="2" /><td rowspan="2">0.023*</td></tr
-              ><tr><td>64.2(11.3)</td><td>65.7(10.4)</td><td /></tr><tr
-                ><td>Metastasis</td><td /><td /><td>0.266</td><td /><td /><td
+              ><tr
+                ><th>Gender</th><td /><td /><td>0.862</td><td /><td /><td
+                  >0.599
+                </td></tr
+              ><tr
+                ><td> Male</td><td>51(66.2%)</td><td>221(65.2%)</td><td /><td
+                  >51(68.0%)</td
+                ><td>221(64.8%)</td><td /></tr
+              ><tr
+                ><td> Female</td><td>26(33.8%)</td><td>118(34.8%)</td><td /><td
+                  >24(32.0%)</td
+                ><td>120(35.2%)</td><td /></tr
+              ><tr
+                ><th>Age</th><td /><td /><td>0.26</td><td /><td /><td>0.023*</td
+                ></tr
+              ><tr
+                ><td> year (SD)</td><td>64.2(11.3)</td><td>65.7(10.4)</td><td
+                /><td>62.9(11.0)</td><td>65.9(10.4)</td><td /></tr
+              ><tr
+                ><th>Metastasis</th><td /><td /><td>0.266</td><td /><td /><td
                   >1</td
                 ></tr
               ><tr
@@ -570,46 +558,41 @@
                   >4(5.3%)</td
                 ><td>18(5.3%)</td><td /></tr
               ><tr
-                ><td>Nodal&nbsp;&nbsp;&nbsp;metastasis </td><td /><td /><td
-                  >0.035*</td
-                ><td /><td /><td /></tr
+                ><th>Nodal metastasis </th><td /><td /><td>0.035*</td><td /><td
+                /><td>0.252 </td></tr
               ><tr
                 ><td> NX+N0+N1</td><td>55(71.4%)</td><td>198(58.4%)</td><td
-                /><td>50(66.7%)</td><td>203(59.5%)</td><td>0.252</td></tr
+                /><td>50(66.7%)</td><td>203(59.5%)</td><td /></tr
               ><tr
                 ><td> N2+N3+N3a+N3b</td><td>22(28.6 %)</td><td>141(41.6%)</td
                 ><td /><td>25(33.3%)</td><td>138(40.5%)</td><td /></tr
               ><tr
-                ><td>Tumor&nbsp;&nbsp;&nbsp;invasion </td><td /><td /><td
-                  >0.075</td
-                ><td /><td /><td>0.025*</td></tr
+                ><th>Tumor invasion </th><td /><td /><td>0.075</td><td /><td
+                /><td>0.025*</td></tr
               ><tr
-                ><td>TX+T1+T1a+T1b+T2+T2a+T2b</td><td>28(36.4%)</td><td
+                ><td> TX+T1+T1a+T1b+T2+T2a+T2b</td><td>28(36.4%)</td><td
                   >89(26.3%)</td
-                ><td rowspan="2" /><td>29(38.7%)</td><td>88(25.8%)</td><td
-                /></tr
+                ><td /><td>29(38.7%)</td><td>88(25.8%)</td><td /></tr
               ><tr
                 ><td> T3+T4+T4a+T4b</td><td>49(63.6%)</td><td>250(73.8%)</td><td
-                  >46(61.3%)</td
-                ><td>253(74.2%)</td><td /></tr
+                /><td>46(61.3%)</td><td>253(74.2%)</td><td /></tr
               ><tr
-                ><td>Stage </td><td /><td /><td>0.009*</td><td>42(59.2%)</td><td
-                  >154(46.4%)</td
-                ><td>0.051</td></tr
+                ><th>Stage </th><td /><td /><td>0.009*</td><td /><td /><td
+                  >0.051</td
+                ></tr
               ><tr
                 ><td> Stage I+IA+IB+II+IIA+IIB</td><td>45(62.5%)</td><td
                   >151(45.6%)</td
-                ><td /><td>29(40.9%)</td><td>178(53.6%)</td><td /></tr
+                ><td /><td>42(59.2%)</td><td>154(46.4%)</td><td /></tr
               ><tr
                 ><td> Stage III+IIIA+IIIB+IIIC+IV</td><td>27(37.5%)</td><td
                   >180(54.4%)</td
-                ><td /><td /><td /><td /></tr
+                ><td /><td>29(40.9%)</td><td>178(53.6%)</td><td /></tr
               ><tr
-                ><td>Residual&nbsp;&nbsp;&nbsp;tumor </td><td /><td /><td
-                  >0.463</td
-                ><td /><td /><td>0.921</td></tr
+                ><th>Residual tumor </th><td /><td /><td>0.463</td><td /><td
+                /><td>0.921</td></tr
               ><tr
-                ><td>RX+R0</td><td>72(94.7%)</td><td>288(92.3%)</td><td /><td
+                ><td> RX+R0</td><td>72(94.7%)</td><td>288(92.3%)</td><td /><td
                   >67(93.1%)</td
                 ><td>293(92.7%)</td><td /></tr
               ><tr
@@ -632,19 +615,19 @@
               ><tr><th /><th>HR</th><th>95%CI</th><th>P-value</th></tr></thead
             ><tbody
               ><tr
-                ><td>MTBP group (ref=low)</td><td>1.36</td><td>(0.58,1.11)</td
+                ><th>MTBP group (ref=low)</th><td>1.36</td><td>(0.58,1.11)</td
                 ><td>0.46</td></tr
               ><tr
-                ><td>Age</td><td>1.01</td><td>(1.01,1.04)</td><td>0.68</td></tr
+                ><th>Age</th><td>1.01</td><td>(1.01,1.04)</td><td>0.68</td></tr
               ><tr
-                ><td>Gender</td><td>2</td><td>(0.77,1.44)</td><td
+                ><th>Gender</th><td>2</td><td>(0.77,1.44)</td><td
                   >0.04*
                 </td></tr
               ><tr
-                ><td>Stage</td><td>1.51</td><td>(1.37,2.24)</td><td>0.12</td
+                ><th>Stage</th><td>1.51</td><td>(1.37,2.24)</td><td>0.12</td
                 ></tr
               ><tr
-                ><td>Tumor invasion</td><td>0.71</td><td>(0.78,1.25)</td><td
+                ><th>Tumor invasion</th><td>0.71</td><td>(0.78,1.25)</td><td
                   >0.15</td
                 ></tr
               ></tbody
@@ -658,18 +641,18 @@
               ><tr><th /><th>HR</th><th>95%CI</th><th>P-value</th></tr></thead
             ><tbody
               ><tr
-                ><td>KIF group (ref=low)</td><td>1.13</td><td>(0.58,1.11)</td
+                ><th>KIF group (ref=low)</th><td>1.13</td><td>(0.58,1.11)</td
                 ><td>0.71</td></tr
-              ><tr><td>Age</td><td>1</td><td>(1.01,1.04)</td><td>0.75</td></tr
+              ><tr><th>Age</th><td>1</td><td>(1.01,1.04)</td><td>0.75</td></tr
               ><tr
-                ><td>Gender</td><td>2.09</td><td>(0.77,1.44)</td><td
+                ><th>Gender</th><td>2.09</td><td>(0.77,1.44)</td><td
                   >0.03*
                 </td></tr
               ><tr
-                ><td>Stage</td><td>1.52</td><td>(0.78,1.25)</td><td>0.11</td
+                ><th>Stage</th><td>1.52</td><td>(0.78,1.25)</td><td>0.11</td
                 ></tr
               ><tr
-                ><td>Tumor invasion</td><td>0.73</td><td>(0.58,1.12)</td><td
+                ><th>Tumor invasion</th><td>0.73</td><td>(0.58,1.12)</td><td
                   >0.18</td
                 ></tr
               ></tbody
@@ -714,51 +697,6 @@
     <p class="text-xs">* names in alphabetical order</p>
   </h3>
   <section class="container mx-auto pt-10 pb-10">
-    <ul class="flex flex-wrap lg:flex-nowrap">
-      <li class="flex-1 p-3">
-        <Avatar name="Chen Chi Ya" />
-        <ul class="list-disc list-inside">
-          <li>Clinical statistics.</li>
-        </ul>
-      </li>
-
-      <li class="flex-1 p-3">
-        <Avatar name="Chen Yan Jin" />
-        <ul class="list-disc list-inside">
-          <li>Data preprocessing using R.</li>
-          <li>
-            Calculation of Chi-square test, OR, 95% CI and p-value using SAS.
-          </li>
-          <li>Cluster plot for MTBP, KIF14 using R.</li>
-        </ul>
-      </li>
-
-      <li class="flex-1 p-3">
-        <Avatar name="Huang Bo Shih" />
-        <ul class="list-disc list-inside">
-          <li>PCA analysis.</li>
-          <li>Project organization.</li>
-        </ul>
-      </li>
-
-      <li class="flex-1 p-3">
-        <Avatar name="Su Jing Jhong" />
-        <ul class="list-disc list-inside">
-          <li>Data processing and ML classification model implementation.</li>
-          <li>Setup and design the website.</li>
-        </ul>
-      </li>
-
-      <li class="flex-1 p-3">
-        <Avatar name="Tsao Yen Ping" />
-        <ul class="list-disc list-inside">
-          <li>ROC chart for MTBP, KIF14 using R.</li>
-          <li>
-            Contingency table, calculation of sensitivity, specificity and AUC
-            for MTBP, KIF14 and combined genes.
-          </li>
-        </ul>
-      </li>
-    </ul>
+    <ContactSection />
   </section>
 </section>
