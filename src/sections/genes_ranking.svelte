@@ -1,4 +1,6 @@
 <script lang="ts">
+  import Gastric from '../parts/gastric.svelte';
+
   const top94Genes = [
     'MTBP',
     'KIF14',
@@ -99,19 +101,22 @@
   const fixedLen = `${Math.trunc(maxLen / 1.3)}rem`;
 </script>
 
-<ol style="--max-tag-length: {fixedLen}">
-  {#each top94Genes as gene}
-    <li class="leading-loose">{gene}</li>
-  {/each}
-</ol>
+<Gastric data={top94Genes} />
+
+<div class="block xl:hidden">
+  <ol
+    class="flex flex-wrap flex-row justify-start"
+    style="--max-tag-length: {fixedLen}"
+  >
+    {#each top94Genes as gene}
+      <li class="leading-loose">{gene}</li>
+    {/each}
+  </ol>
+</div>
 
 <style>
   ol {
     list-style-type: decimal-leading-zero;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: flex-start;
     list-style-position: inside;
   }
   ol li {
