@@ -4,19 +4,36 @@
 
   export let id: string;
 
-  function makeData(raw: Record<'gc' | 'value', number>[]) {
+  function makeData(raw: Record<'g' | 'v', number>[]) {
     return {
-      gc: raw.filter((e) => e.gc).map((e) => e.value),
-      'non-gc': raw.filter((e) => !e.gc).map((e) => e.value),
+      gc: raw.filter((e) => e.g).map((e) => e.v),
+      'non-gc': raw.filter((e) => !e.g).map((e) => e.v),
     };
   }
 
   async function fetchGene(
     id: string
   ): Promise<Record<'gc' | 'value', number>[]> {
-    const filename = id.replace(/[^-_\w]/g, '');
-    const api = await fetch(`/genes/${filename}.json`);
-    return api.json();
+    const filename = id[0].toLowerCase();
+    if (window.tmu2020genes?.[filename]?.[id]) {
+      return window.tmu2020genes[filename][id];
+    }
+
+    const api = await fetch(`/genes/${filename}.tsv`);
+    const content = (await api.text()).split('\n').map((el) => el.split('\t'));
+
+    if (!window.tmu2020genes) {
+      window.tmu2020genes = {};
+    }
+
+    for (const [key, ...value] of content) {
+      if (!window.tmu2020genes?.[filename]) {
+        window.tmu2020genes[filename] = {};
+      }
+      window.tmu2020genes[filename][key] = JSON.parse(value.join('\t'));
+    }
+
+    return window.tmu2020genes[filename][id];
   }
 
   const rawData: Record<'gc' | 'value', number>[] = [];
