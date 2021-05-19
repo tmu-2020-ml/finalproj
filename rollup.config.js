@@ -52,7 +52,10 @@ export default {
   },
   plugins: [
     dsv(),
-    json(),
+
+    json({
+      compact: true,
+    }),
 
     svelte({
       preprocess: sveltePreprocess({
