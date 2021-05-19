@@ -8,6 +8,8 @@
   import StatTable from './parts/stat_table.svelte';
   import ContactSection from './sections/contact.svelte';
   import GenesPvalue from './parts/genes_pvalue.svelte';
+  import GeneSummary from './parts/gene_summary.svelte';
+  import GeneShowcase from './sections/genes_showcase.svelte';
 
   $: inputPValue = 1e-38;
 
@@ -265,9 +267,9 @@
           cases. Each row shows the gene-level transcription estimates, which
           contain 26,514 genes, in RPKM values.
         </figcaption>
-        <ul>
+        <!-- <ul>
           <li>tt</li>
-        </ul>
+        </ul> -->
       </figure>
 
       <figure class="flex flex-col">
@@ -275,9 +277,9 @@
           Its original form is hard to processes in machine learning. The
           dataset needs to be relabeled and rotated into an appropriate form.
         </figcaption>
-        <ul>
+        <!-- <ul>
           <li>tt</li>
-        </ul>
+        </ul> -->
       </figure>
 
       <figure class="flex flex-col">
@@ -285,9 +287,7 @@
           The following plots are the distribution plots for some genes and some
           of them could be found to present in the normal distribution.
         </figcaption>
-        <ul>
-          <li>tt</li>
-        </ul>
+        <GeneShowcase />
       </figure>
 
       <figure class="flex flex-col">
