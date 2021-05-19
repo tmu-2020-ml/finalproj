@@ -7,6 +7,9 @@
   import Blockquote from './parts/blockquote.svelte';
   import StatTable from './parts/stat_table.svelte';
   import ContactSection from './sections/contact.svelte';
+  import GenesPvalue from './parts/genes_pvalue.svelte';
+
+  $: inputPValue = 1e-38;
 
   const GAIncidenceData: [string, number][] = [
     ['lung', 11.6],
@@ -254,15 +257,75 @@
   <h3 id="classification" class="text-4xl p-10">Classification</h3>
   <section class="container mx-auto">
     <article>
-      <h4 class="text-3xl capitalize">Naïve Bays model</h4>
-      <div
-        class="flex flex-wrap xl:flex-nowrap overflow-x-auto relative justify-center"
-        style="width: 100vw; left: calc(-50vw + 50%);"
-      >
-        <img src="/images/rawdata.png" />
-        <img src="/images/nbperf.svg" />
-      </div>
+      <h4 class="text-3xl capitalize">Data Preprocessing</h4>
+
+      <figure class="flex flex-col">
+        <figcaption class="p-5">
+          The dataset includes 417 observations within 380 GC and 37 normal
+          cases. Each row shows the gene-level transcription estimates, which
+          contain 26,514 genes, in RPKM values.
+        </figcaption>
+        <ul>
+          <li>tt</li>
+        </ul>
+      </figure>
+
+      <figure class="flex flex-col">
+        <figcaption class="p-5">
+          Its original form is hard to processes in machine learning. The
+          dataset needs to be relabeled and rotated into an appropriate form.
+        </figcaption>
+        <ul>
+          <li>tt</li>
+        </ul>
+      </figure>
+
+      <figure class="flex flex-col">
+        <figcaption class="p-5">
+          The following plots are the distribution plots for some genes and some
+          of them could be found to present in the normal distribution.
+        </figcaption>
+        <ul>
+          <li>tt</li>
+        </ul>
+      </figure>
+
+      <figure class="flex flex-col">
+        <figcaption class="p-5">
+          Reducing variables to an appropriate scale by using Student's t-test.
+        </figcaption>
+
+        <div class="p-5">
+          p-value should be smaller than
+          <input
+            class="border p-3 w-20"
+            type="string"
+            bind:value={inputPValue}
+          />
+        </div>
+
+        <GenesPvalue id="gene-pvalue" bind:lessthan={inputPValue} />
+      </figure>
     </article>
+
+    <article>
+      <h4 class="text-3xl capitalize">Naïve Bays model</h4>
+
+      <figure>
+        <figcaption class="p-5">
+          The model shows the best performance in p-value &lt; 1e-38 which
+          reduce the number of genes into 94.
+        </figcaption>
+        <div class="flex justify-center">
+          <img
+            class="max-w-screen-sm"
+            src="/images/nbperf.svg"
+            alt="the performance of Naïve Bays model"
+          />
+        </div>
+      </figure>
+    </article>
+
     <article>
       <h4 class="text-3xl capitalize">Principal components analysis</h4>
 
