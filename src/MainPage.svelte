@@ -29,13 +29,13 @@
 
   const GAMortality: [string, number][] = [
     ['lung', 18.4],
-    ['breast', 6.6],
     ['colorectum', 9.2],
-    ['prostate', 3.8],
     ['stomach', 8.2],
     ['liver', 8.2],
-    ['esophagus', 5.3],
+    ['breast', 6.6],
     ['pancreas', 4.5],
+    ['esophagus', 5.3],
+    ['prostate', 3.8],
     ['cervix uteri', 3.3],
     ['leukaemia', 3.2],
     ['other', 29.3],
