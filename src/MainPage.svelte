@@ -693,7 +693,7 @@
               ><tr
                 ><th>Age</th><td>1.01</td><td>(1.01,1.04)</td><td>0.68</td></tr
               ><tr
-                ><th>Gender</th><td>2</td><td>(0.77,1.44)</td><td
+                ><th>Gender</th><td>2.00</td><td>(0.77,1.44)</td><td
                   >0.04*
                 </td></tr
               ><tr
@@ -716,7 +716,8 @@
               ><tr
                 ><th>KIF group (ref=low)</th><td>1.13</td><td>(0.58,1.11)</td
                 ><td>0.71</td></tr
-              ><tr><th>Age</th><td>1</td><td>(1.01,1.04)</td><td>0.75</td></tr
+              ><tr
+                ><th>Age</th><td>1.00</td><td>(1.01,1.04)</td><td>0.75</td></tr
               ><tr
                 ><th>Gender</th><td>2.09</td><td>(0.77,1.44)</td><td
                   >0.03*
