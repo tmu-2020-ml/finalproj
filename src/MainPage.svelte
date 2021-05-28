@@ -644,6 +644,31 @@
         </StatTable>
       </div>
 
+      <article class="pt-5">
+        <h4 class="text-3xl capitalize">Survival Analysis</h4>
+        <p>
+          The prognostic value of two genes to gastric cancer patients were
+          assessed by Cox proportional hazards model.
+        </p>
+      </article>
+
+      <figure>
+        <div class="flex flex-wrap xl:flex-nowrap justify-evenly p-5">
+          <img
+            class="p-5"
+            style="width: 500px;"
+            src="/images/survival of MTBP DSS.svg"
+            alt="survival of MTBP DSS"
+          />
+          <img
+            class="p-5"
+            style="width: 500px;"
+            src="/images/survival of KIF DSS.svg"
+            alt="survival of KIF DSS"
+          />
+        </div>
+      </figure>
+
       <div
         class="flex flex-wrap xl:flex-nowrap overflow-x-auto relative justify-center items-center"
         style="width: 100vw; left: calc(-50vw + 50%);"
@@ -699,31 +724,6 @@
           </table>
         </StatTable>
       </div>
-
-      <article class="pt-5">
-        <h4 class="text-3xl capitalize">Survival Analysis</h4>
-        <p>
-          The prognostic value of two genes to gastric cancer patients were
-          assessed by Cox proportional hazards model.
-        </p>
-      </article>
-
-      <figure>
-        <div class="flex flex-wrap xl:flex-nowrap justify-evenly p-5">
-          <img
-            class="p-5"
-            style="width: 500px;"
-            src="/images/survival of MTBP DSS.svg"
-            alt="survival of MTBP DSS"
-          />
-          <img
-            class="p-5"
-            style="width: 500px;"
-            src="/images/survival of KIF DSS.svg"
-            alt="survival of KIF DSS"
-          />
-        </div>
-      </figure>
     </section>
   </section>
 </section>
