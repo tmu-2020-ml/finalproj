@@ -8,8 +8,8 @@
   import StatTable from './parts/stat_table.svelte';
   import ContactSection from './sections/contact.svelte';
   import GenesPvalue from './parts/genes_pvalue.svelte';
-  import GeneSummary from './parts/gene_summary.svelte';
   import GeneShowcase from './sections/genes_showcase.svelte';
+  import RelabelTable from './parts/relabel_table.svelte';
 
   $: inputPValue = 1e-38;
 
@@ -29,13 +29,13 @@
 
   const GAMortality: [string, number][] = [
     ['lung', 18.4],
-    ['breast', 6.6],
     ['colorectum', 9.2],
-    ['prostate', 3.8],
     ['stomach', 8.2],
     ['liver', 8.2],
-    ['esophagus', 5.3],
+    ['breast', 6.6],
     ['pancreas', 4.5],
+    ['esophagus', 5.3],
+    ['prostate', 3.8],
     ['cervix uteri', 3.3],
     ['leukaemia', 3.2],
     ['other', 29.3],
@@ -277,9 +277,15 @@
           Its original form is hard to processes in machine learning. The
           dataset needs to be relabeled and rotated into an appropriate form.
         </figcaption>
-        <!-- <ul>
-          <li>tt</li>
-        </ul> -->
+
+        <div
+          class="flex flex-wrap xl:flex-nowrap overflow-x-auto relative justify-evenly"
+          style="width: 100vw; left: calc(-50vw + 50%);"
+        >
+          <StatTable>
+            <RelabelTable />
+          </StatTable>
+        </div>
       </figure>
 
       <figure class="flex flex-col">
