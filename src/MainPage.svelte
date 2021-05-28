@@ -339,6 +339,7 @@
           style="width: 100vw; left: calc(-50vw + 50%);"
         >
           <img src="/images/80 variance.svg" />
+          <img src="/images/variance vs. PC.svg" />
           <img src="/images/clustering usung PC1+PC2.svg" />
         </div>
       </figure>
@@ -363,7 +364,6 @@
           style="width: 100vw; left: calc(-50vw + 50%);"
         >
           <img src="/images/error vs. pc.svg" />
-          <img src="/images/variance vs. PC.svg" />
           <img src="/images/mtbp_kif14_scatterplot.svg" />
         </div>
       </figure>
