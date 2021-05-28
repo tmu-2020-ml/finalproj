@@ -10,11 +10,18 @@
   const pieData = {
     $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
     title,
-    data: { values: data.map(([cancer, value]) => ({ cancer, value })) },
+    data: {
+      values: data.map(([cancer, value], index) => ({ cancer, value, index })),
+    },
     layer: [{ mark: { type: 'arc', innerRadius: 50 } }],
     encoding: {
       theta: { field: 'value', type: 'quantitative' },
       color: { field: 'cancer', type: 'nominal' },
+      order: { field: 'index', sort: false },
+      tooltip: [
+        { field: 'cancer', type: 'nominal' },
+        { field: 'value', type: 'quantitative' },
+      ],
     },
     view: { stroke: null },
   };
