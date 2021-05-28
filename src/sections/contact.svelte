@@ -4,7 +4,7 @@
 
 <ul class="flex flex-wrap lg:flex-nowrap">
   <li class="flex-1 p-3">
-    <Avatar name="Chen Chi Ya" />
+    <Avatar name="Chen Chi Ya" image="/avatars/chen_chi_ya.jpg" />
     <ul class="list-disc list-inside">
       <li>Clinical statistics.</li>
       <li>Survial Analysis.</li>
@@ -22,7 +22,7 @@
   </li>
 
   <li class="flex-1 p-3">
-    <Avatar name="Huang Bo Shih" />
+    <Avatar name="Huang Bo Shih" image="/avatars/huang_bo_shih.jpg" />
     <ul class="list-disc list-inside">
       <li>PCA analysis.</li>
       <li>Project organization.</li>
@@ -30,7 +30,7 @@
   </li>
 
   <li class="flex-1 p-3">
-    <Avatar name="Su Jing Jhong" />
+    <Avatar name="Su Jing Jhong" image="/avatars/su_jing_jhong.jpg" />
     <ul class="list-disc list-inside">
       <li>Data processing and ML classification model implementation.</li>
       <li>Setup and design the website.</li>
@@ -38,7 +38,7 @@
   </li>
 
   <li class="flex-1 p-3">
-    <Avatar name="Tsao Yen Ping" />
+    <Avatar name="Tsao Yen Ping" image="/avatars/tsao_yen_ping.jpg" />
     <ul class="list-disc list-inside">
       <li>ROC chart for MTBP, KIF14 using R.</li>
       <li>

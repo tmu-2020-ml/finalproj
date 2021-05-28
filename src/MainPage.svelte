@@ -197,7 +197,10 @@
       </Blockquote>
     </article>
 
-    <div class="overflow-x-auto flex justify-center">
+    <div
+      class="flex flex-wrap xl:flex-nowrap overflow-x-auto relative justify-center"
+      style="width: 100vw; left: calc(-50vw + 50%);"
+    >
       <StatTable>
         <TCGASampleTable />
       </StatTable>
