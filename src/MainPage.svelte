@@ -335,7 +335,7 @@
           distinguish two distinct clusters: GC vs. non-GC.
         </figcaption>
         <div
-          class="flex flex-wrap xl:flex-nowrap overflow-x-auto relative justify-center"
+          class="flex flex-wrap xl:flex-nowrap overflow-x-auto relative justify-evenly"
           style="width: 100vw; left: calc(-50vw + 50%);"
         >
           <img src="/images/80 variance.svg" />
@@ -359,11 +359,11 @@
           <p>MTBP and KIF14 shows two distinct clusters: GC vs. non-GC.</p>
         </figcaption>
         <div
-          class="flex flex-wrap xl:flex-nowrap overflow-x-auto relative justify-center"
+          class="flex flex-wrap xl:flex-nowrap overflow-x-auto relative justify-evenly"
           style="width: 100vw; left: calc(-50vw + 50%);"
         >
-          <img src="/images/variance vs. PC.svg" />
           <img src="/images/error vs. pc.svg" />
+          <img src="/images/variance vs. PC.svg" />
           <img src="/images/mtbp_kif14_scatterplot.svg" />
         </div>
       </figure>
@@ -550,30 +550,6 @@
           to clinical features were assessed by chi square test.
         </p>
       </article>
-      <article class="pt-5">
-        <h4 class="text-3xl capitalize">Survival Analysis</h4>
-        <p>
-          The prognostic value of two genes to gastric cancer patients were
-          assessed by Cox proportional hazards model.
-        </p>
-      </article>
-
-      <figure>
-        <div class="flex flex-wrap xl:flex-nowrap justify-evenly p-5">
-          <img
-            class="p-5"
-            style="width: 500px;"
-            src="/images/survival of MTBP DSS.svg"
-            alt="survival of MTBP DSS"
-          />
-          <img
-            class="p-5"
-            style="width: 500px;"
-            src="/images/survival of KIF DSS.svg"
-            alt="survival of KIF DSS"
-          />
-        </div>
-      </figure>
 
       <div
         class="flex flex-wrap xl:flex-nowrap overflow-x-auto relative justify-center items-center p-5"
@@ -723,6 +699,31 @@
           </table>
         </StatTable>
       </div>
+
+      <article class="pt-5">
+        <h4 class="text-3xl capitalize">Survival Analysis</h4>
+        <p>
+          The prognostic value of two genes to gastric cancer patients were
+          assessed by Cox proportional hazards model.
+        </p>
+      </article>
+
+      <figure>
+        <div class="flex flex-wrap xl:flex-nowrap justify-evenly p-5">
+          <img
+            class="p-5"
+            style="width: 500px;"
+            src="/images/survival of MTBP DSS.svg"
+            alt="survival of MTBP DSS"
+          />
+          <img
+            class="p-5"
+            style="width: 500px;"
+            src="/images/survival of KIF DSS.svg"
+            alt="survival of KIF DSS"
+          />
+        </div>
+      </figure>
     </section>
   </section>
 </section>
